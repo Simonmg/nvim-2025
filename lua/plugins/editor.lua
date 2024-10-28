@@ -214,4 +214,19 @@ return {
     "williamboman/mason.nvim",
     opts = { ensure_installed = { "prettier" } },
   },
+  {
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<Tab>", "<Cmd>BufferlineCycleNext<CR>", desc = "Next tab" },
+      { "<S-Tab>", "<Cmd>BufferlineCyclePrev<CR>", desc = "Prev tab" },
+    },
+    opts = {
+      options = {
+        mode = "tabs",
+        show_buffer_close_icons = false,
+        show_close_icon = false,
+      },
+    },
+  },
 }
