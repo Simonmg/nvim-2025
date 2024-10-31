@@ -10,3 +10,24 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.wo.conceallevel = 0
   end,
 })
+
+vim.api.nvim_create_autocmd({ "CursorHold" }, {
+  pattern = { "Typescript", "TypescriptReact", "json", "javascript", ... },
+  callback = function()
+    require("utils").blameVirtText()
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+  pattern = { "Typescript", "TypescriptReact", "json", "javascript", ... },
+  callback = function()
+    require("utils").clearBlameVirtText()
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "CursorMovedI" }, {
+  pattern = { "Typescript", "TypescriptReact", "json", "javascript", ... },
+  callback = function()
+    require("utils").clearBlameVirtText()
+  end,
+})
