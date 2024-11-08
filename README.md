@@ -4,7 +4,7 @@ A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
 Refer to the [documentation](https://lazyvim.github.io/installation) to get started.
 
 ## Instalacion
-
+#### Al abrir el aplicativo instala las librerias necesarias
 ### Clonar Repositorio
 ``` git clone git@github.com:Simonmg/nvim-2025.git ```
 
