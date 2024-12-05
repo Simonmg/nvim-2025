@@ -26,3 +26,6 @@ keymap.set("n", "sl", "<C-w>l")
 keymap.set("n", "fa", ":EslintFixAll<Return>", opts)
 -- Prettier
 keymap.set("n", "fp", ":Perttier<Return>", opts)
+
+-- Select all --
+keymap.set("n", "aa", "ggVG")
