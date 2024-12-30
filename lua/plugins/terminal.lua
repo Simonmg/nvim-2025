@@ -10,7 +10,7 @@ return {
       end
     end,
     open_mapping = [[<c-t>]],
-    direction = "vertical",
+    direction = "horizontal",
     on_open = function(term) end,
   },
 }
