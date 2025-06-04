@@ -12,7 +12,6 @@ return {
       },
     },
   },
-
   {
     "echasnovski/mini.hipatterns",
     event = "BufReadPre",
@@ -227,6 +226,44 @@ return {
         show_buffer_close_icons = false,
         show_close_icon = false,
       },
+    },
+  },
+  {
+    "olimorris/codecompanion.nvim",
+    opts = {
+      display = {
+        action_palette = {
+          provider = "telescope",
+        },
+      },
+      strategies = {
+        chat = { adapter = "gemini" },
+        inline = { adapter = "gemini" },
+        cmd = { adapter = "gemini" },
+      },
+      adapters = {
+        deepseek = function()
+          return require("codecompanion.adapters").extend("deepseek", {
+            env = {
+              api_key = "sk-f8bf21cc4c5d4594b3ee9cc296e57f50",
+            },
+          })
+        end,
+        gemini = function()
+          return require("codecompanion.adapters").extend("gemini", {
+            env = {
+              api_key = "AIzaSyBMF-SjCn_dxRyuVo7yUHMiTt4PF5WX8qA",
+            },
+          })
+        end,
+      },
+      opts = {
+        log_level = "DEBUG",
+      },
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
     },
   },
 }
