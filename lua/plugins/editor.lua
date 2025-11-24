@@ -13,7 +13,7 @@ return {
     },
   },
   {
-    "echasnovski/mini.hipatterns",
+    "nvim-mini/mini.hipatterns",
     event = "BufReadPre",
     opts = {
       highlighters = {
@@ -209,10 +209,10 @@ return {
       require("telescope").load_extension("file_browser")
     end,
   },
-  {
-    "williamboman/mason.nvim",
-    opts = { ensure_installed = { "prettier" } },
-  },
+  -- {
+  --   "williamboman/mason.nvim",
+  --   opts = { ensure_installed = { "prettier" } },
+  -- },
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
@@ -231,11 +231,6 @@ return {
   {
     "olimorris/codecompanion.nvim",
     opts = {
-      display = {
-        action_palette = {
-          provider = "telescope",
-        },
-      },
       strategies = {
         chat = { adapter = "gemini" },
         inline = { adapter = "gemini" },
