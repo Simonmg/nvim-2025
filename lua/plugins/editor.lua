@@ -230,6 +230,7 @@ return {
   },
   {
     "olimorris/codecompanion.nvim",
+    event = "VeryLazy",
     opts = {
       strategies = {
         chat = { adapter = "gemini" },
@@ -240,14 +241,16 @@ return {
         deepseek = function()
           return require("codecompanion.adapters").extend("deepseek", {
             env = {
-              api_key = "sk-f8bf21cc4c5d4594b3ee9cc296e57f50",
+              -- IMPORTANT: Set your API key as an environment variable
+              api_key = os.getenv("DEEPSEEK_API_KEY"),
             },
           })
         end,
         gemini = function()
           return require("codecompanion.adapters").extend("gemini", {
             env = {
-              api_key = "AIzaSyBMF-SjCn_dxRyuVo7yUHMiTt4PF5WX8qA",
+              -- IMPORTANT: Set your API key as an environment variable
+              api_key = os.getenv("GEMINI_API_KEY"),
             },
           })
         end,

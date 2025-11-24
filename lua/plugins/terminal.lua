@@ -15,8 +15,6 @@ return {
       opts.float_opts = {
         border = "curved",
       }
-
-      opts.cmd = "tmux"
     end,
   },
 }
