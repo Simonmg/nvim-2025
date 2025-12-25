@@ -228,40 +228,4 @@ return {
       },
     },
   },
-  {
-    "olimorris/codecompanion.nvim",
-    event = "VeryLazy",
-    opts = {
-      strategies = {
-        chat = { adapter = "gemini" },
-        inline = { adapter = "gemini" },
-        cmd = { adapter = "gemini" },
-      },
-      adapters = {
-        deepseek = function()
-          return require("codecompanion.adapters").extend("deepseek", {
-            env = {
-              -- IMPORTANT: Set your API key as an environment variable
-              api_key = os.getenv("DEEPSEEK_API_KEY"),
-            },
-          })
-        end,
-        gemini = function()
-          return require("codecompanion.adapters").extend("gemini", {
-            env = {
-              -- IMPORTANT: Set your API key as an environment variable
-              api_key = os.getenv("GEMINI_API_KEY"),
-            },
-          })
-        end,
-      },
-      opts = {
-        log_level = "DEBUG",
-      },
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
 }

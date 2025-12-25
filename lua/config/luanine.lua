@@ -23,17 +23,17 @@ function M:init(options)
 
   local group = vim.api.nvim_create_augroup("CodeCompanionHooks", {})
 
-  vim.api.nvim_create_autocmd({ "User" }, {
-    pattern = "CodeCompanionRequest*",
-    group = group,
-    callback = function(request)
-      if request.match == "CodeCompanionRequestStarted" then
-        self.processing = true
-      elseif request.match == "CodeCompanionRequestFinished" then
-        self.processing = false
-      end
-    end,
-  })
+  -- vim.api.nvim_create_autocmd({ "User" }, {
+  --   pattern = "CodeCompanionRequest*",
+  --   group = group,
+  --   callback = function(request)
+  --     if request.match == "CodeCompanionRequestStarted" then
+  --       self.processing = true
+  --     elseif request.match == "CodeCompanionRequestFinished" then
+  --       self.processing = false
+  --     end
+  --   end,
+  -- })
 end
 
 -- Function that runs every time statusline is updated
