@@ -1,5 +1,5 @@
 return {
-  { -- Plugin: olimorris/codecompanion.nvim
+  {
     "olimorris/codecompanion.nvim",
     lazy = false,
     dependencies = {
@@ -12,26 +12,30 @@ return {
           end
         end,
       },
-      "MeanderingProgrammer/render-markdown.nvim",
-    },
-    opts = {
-      default_provider = "openai_endpoint",
-      providers = {
-        openai_endpoint = {
-          endpoint = "https://openrouter.ai/api/v1",
-          api_key = os.getenv("OPENROUTER_API_KEY"),
-          model_names = {
-            default = "google/gemini-2.5-flash",
-          },
+      {
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = {
+          ft = { "markdown", "codecompanion" },
         },
       },
     },
-  },
-  { -- Plugin: MeanderingProgrammer/render-markdown.nvim
-    "MeanderingProgrammer/render-markdown.nvim",
-    opts = {
-      ft = { "markdown", "codecompanion" },
-    },
-    ft = { "codecompanion" },
+    opts = function()
+      local api_key = os.getenv("OPENROUTER_API_KEY")
+      if not api_key then
+        vim.notify("OPENROUTER_API_KEY is not set!", vim.log.levels.WARN)
+      end
+      return {
+        default_provider = "openai_endpoint",
+        providers = {
+          openai_endpoint = {
+            endpoint = "https://openrouter.ai/api/v1",
+            api_key = api_key,
+            model_names = {
+              default = "google/gemini-2.5-flash",
+            },
+          },
+        },
+      }
+    end,
   },
 }
